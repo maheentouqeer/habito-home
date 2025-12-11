@@ -9,7 +9,7 @@ import {
   Zap,
   ArrowRight
 } from "lucide-react";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getDashboardStats } from "../services/api";
 import Card from "../components/ui/Card";
