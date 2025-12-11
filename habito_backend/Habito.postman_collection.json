@@ -1,0 +1,283 @@
+{
+  "info": {
+    "_postman_id": "habito-backend-collection-123456",
+    "name": "Habito Backend (Full API)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Signup",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\":\"Test User\",\n  \"email\":\"test@example.com\",\n  \"password\":\"123456\"\n}"
+            },
+            "url": { "raw": "http://localhost:5000/signup", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["signup"] }
+          }
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\":\"test@example.com\",\n  \"password\":\"123456\"\n}"
+            },
+            "url": { "raw": "http://localhost:5000/login", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["login"] }
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "Get Current User",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+            "url": { "raw": "http://localhost:5000/users", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["users"] }
+          }
+        },
+        {
+          "name": "Get User by ID",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+            "url": { "raw": "http://localhost:5000/users/1", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["users", "1"] }
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "Habits",
+      "item": [
+        {
+          "name": "Get All Habits",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+            "url": { "raw": "http://localhost:5000/habits", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["habits"] }
+          }
+        },
+        {
+          "name": "Add Habit",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"habit_name\":\"Drink Water\",\n  \"description\":\"Drink 8 cups daily\",\n  \"frequency\":\"daily\"\n}"
+            },
+            "url": { "raw": "http://localhost:5000/add_habit", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["add_habit"] }
+          }
+        },
+        {
+          "name": "Update Habit",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"habit_name\":\"Drink Water Updated\",\n  \"description\":\"Updated desc\",\n  \"frequency\":\"daily\"\n}"
+            },
+            "url": { "raw": "http://localhost:5000/update_habit/1", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["update_habit", "1"] }
+          }
+        },
+        {
+          "name": "Delete Habit",
+          "request": {
+            "method": "DELETE",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+            "url": { "raw": "http://localhost:5000/delete_habit/1", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["delete_habit", "1"] }
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "Habit Logs",
+      "item": [
+        {
+          "name": "Get Habit Logs",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+            "url": { "raw": "http://localhost:5000/habitlogs/1", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["habitlogs", "1"] }
+          }
+        },
+        {
+          "name": "Add Habit Log",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"habit_id\":1,\n  \"log_date\":\"2025-01-20\",\n  \"status\":\"completed\"\n}"
+            },
+            "url": { "raw": "http://localhost:5000/add_log", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["add_log"] }
+          }
+        },
+        {
+          "name": "Delete Habit Log",
+          "request": {
+            "method": "DELETE",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+            "url": { "raw": "http://localhost:5000/delete_log/1", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["delete_log", "1"] }
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "Goals",
+      "item": [
+        {
+          "name": "Get Goals",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+            "url": { "raw": "http://localhost:5000/goals", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["goals"] }
+          }
+        },
+        {
+          "name": "Add Goal",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"goal_title\":\"Lose Weight\",\n  \"goal_description\":\"Lose 5kg\",\n  \"target_date\":\"2025-03-01\"\n}"
+            },
+            "url": { "raw": "http://localhost:5000/add_goal", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["add_goal"] }
+          }
+        },
+        {
+          "name": "Update Goal",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"goal_title\":\"Lose Weight Updated\",\n  \"goal_description\":\"new desc\",\n  \"target_date\":\"2025-03-10\"\n}"
+            },
+            "url": { "raw": "http://localhost:5000/update_goal/1", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["update_goal", "1"] }
+          }
+        },
+        {
+          "name": "Delete Goal",
+          "request": {
+            "method": "DELETE",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+            "url": { "raw": "http://localhost:5000/delete_goal/1", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["delete_goal", "1"] }
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "Goal Progress",
+      "item": [
+        {
+          "name": "Get Goal Progress",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+            "url": { "raw": "http://localhost:5000/goalprogress/1", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["goalprogress", "1"] }
+          }
+        },
+        {
+          "name": "Add Goal Progress",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"goal_id\":1,\n  \"progress_date\":\"2025-01-20\",\n  \"progress_note\":\"Did exercise\",\n  \"percentage_done\":30\n}"
+            },
+            "url": { "raw": "http://localhost:5000/add_progress", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["add_progress"] }
+          }
+        },
+        {
+          "name": "Update Goal Progress",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"progress_note\":\"Updated Note\",\n  \"percentage_done\":50\n}"
+            },
+            "url": { "raw": "http://localhost:5000/update_progress/1", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["update_progress", "1"] }
+          }
+        },
+        {
+          "name": "Delete Goal Progress",
+          "request": {
+            "method": "DELETE",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+            "url": { "raw": "http://localhost:5000/delete_progress/1", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["delete_progress", "1"] }
+          }
+        }
+      ]
+    },
+
+    {
+      "name": "Badges",
+      "item": [
+        {
+          "name": "Get Badges",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "http://localhost:5000/badges", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["badges"] }
+          }
+        },
+        {
+          "name": "Add Badge",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"badge_name\":\"Starter\",\n  \"badge_description\":\"First habit added\",\n  \"requirement\":\"Add one habit\"\n}"
+            },
+            "url": { "raw": "http://localhost:5000/add_badge", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["add_badge"] }
+          }
+        }
+      ]
+    }
+
+  ]
+}
