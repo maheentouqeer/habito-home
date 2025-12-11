@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MessageCircle, X, Send, Bot, User } from "lucide-react";
 
@@ -18,9 +18,6 @@ export default function Chatbot() {
     setInput("");
     setIsLoading(true);
 
-    // Simulated AI response - Replace with your Groq API integration
-    // To integrate Groq: POST to https://api.groq.com/openai/v1/chat/completions
-    // with your GROQ_API_KEY and the messages array
     setTimeout(() => {
       const responses = [
         "That's a great goal! Try breaking it down into smaller, daily habits.",
